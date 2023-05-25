@@ -1,17 +1,17 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { toast } from "react-toastify"
-import { FaUser } from "react-icons/fa"
-import { useSelector, useDispatch } from "react-redux"
-import { register } from "../features/auth/authSlice"
-import Spinner from "../components/Spinner"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { FaUser } from 'react-icons/fa'
+import { useSelector, useDispatch } from 'react-redux'
+import { register } from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
 
 function Register() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    password2: "",
+    name: '',
+    email: '',
+    password: '',
+    password2: '',
   })
 
   const { name, email, password, password2 } = formData
@@ -32,7 +32,7 @@ function Register() {
     e.preventDefault()
 
     if (password !== password2) {
-      toast.error("Passwords do not match")
+      toast.error('Passwords do not match')
     } else {
       const userData = {
         name,
@@ -44,7 +44,7 @@ function Register() {
         .unwrap()
         .then((user) => {
           toast.success(`Registered new user - ${user.name}`)
-          navigate("/")
+          navigate('/')
         })
         .catch(toast.error)
     }
@@ -56,65 +56,65 @@ function Register() {
 
   return (
     <>
-      <section className="heading">
+      <section className='heading'>
         <h1>
           <FaUser /> Register
         </h1>
         <p>Please create an account</p>
       </section>
 
-      <section className="form">
+      <section className='form'>
         <form onSubmit={onSubmit}>
-          <div className="form-group">
+          <div className='form-group'>
             <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
+              type='text'
+              className='form-control'
+              id='name'
+              name='name'
               value={name}
               onChange={onChange}
-              placeholder="Enter your name"
+              placeholder='Enter your name'
               required
             />
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
+              type='email'
+              className='form-control'
+              id='email'
+              name='email'
               value={email}
               onChange={onChange}
-              placeholder="Enter your email"
+              placeholder='Enter your email'
               required
             />
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
+              type='password'
+              className='form-control'
+              id='password'
+              name='password'
               value={password}
               onChange={onChange}
-              placeholder="Enter password"
+              placeholder='Enter password'
               required
             />
           </div>
-          <div className="form-group">
+          <div className='form-group'>
             <input
-              type="password"
-              className="form-control"
-              id="password2"
-              name="password2"
+              type='password'
+              className='form-control'
+              id='password2'
+              name='password2'
               value={password2}
               onChange={onChange}
-              placeholder="Confirm password"
+              placeholder='Confirm password'
               required
             />
           </div>
-          <div className="form-group">
-            <button className="btn btn-block">Submit</button>
+          <div className='form-group'>
+            <button className='btn btn-block'>Submit</button>
           </div>
         </form>
       </section>
